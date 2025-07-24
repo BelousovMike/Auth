@@ -1,6 +1,4 @@
 ﻿using Auth.Infrastructure.Data;
-using Auth.Infrastructure.Data.Queries;
-using Auth.UseCases.WeatherForecast.List;
 
 namespace Auth.Infrastructure;
 
@@ -25,8 +23,7 @@ public static class InfrastructureServiceExtensions
 
         // Интерфейсы и сервисы из Core тоже нужно подключать здесь.
         services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>))
-            .AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>))
-            .AddScoped<IListWeatherForecastQueryService, ListWeatherForecastQueryService>();
+            .AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
 
         return services;
     }

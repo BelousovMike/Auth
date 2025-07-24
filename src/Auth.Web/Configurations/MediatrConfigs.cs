@@ -1,7 +1,4 @@
-﻿using Auth.Core.WeatherForecastAggregate;
-using Auth.UseCases.WeatherForecast.List;
-
-namespace Auth.Web.Configurations;
+﻿namespace Auth.Web.Configurations;
 
 /// <summary>
 /// Конфигурация MediatR.
@@ -15,10 +12,10 @@ internal static class MediatrConfigs
     /// <returns>Коллекция <see cref="IServiceCollection"/>с настроенным MediatR.</returns>
     public static IServiceCollection AddMediatrConfigs(this IServiceCollection services)
     {
-        Assembly?[] mediatRAssemblies = new[]
+        var mediatRAssemblies = new Assembly?[]
         {
-            Assembly.GetAssembly(typeof(WeatherForecast)), // из Core
-            Assembly.GetAssembly(typeof(ListWeatherForecastQuery)), // из UseCases
+            //Assembly.GetAssembly(typeof(WeatherForecast)), // из Core
+            //Assembly.GetAssembly(typeof(ListWeatherForecastQuery)), // из UseCases
         };
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(mediatRAssemblies!))
